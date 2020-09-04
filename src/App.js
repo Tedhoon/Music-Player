@@ -1,24 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MusicPlayer from './Components/MusicPlayer';
+import IU_MUSIC from './Music/iu-블루밍.mp3';
+import IU_COVER from './Music/Cover/iu-블루밍.jpg'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MusicPlayer music={IU_MUSIC} icon={IU_COVER} />
     </div>
   );
 }
