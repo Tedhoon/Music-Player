@@ -2,26 +2,15 @@ import React from "react";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import "react-jinke-music-player/assets/index.css";
 
-function MusicPlayer(props) {
-    const audioList1 = [
-        {
-            name: 'IU(아이유) _ Blueming(블루밍)',
-            cover: props.icon,
-            musicSrc: props.music,
-        }, {
-            name: 'IU(아이유) _ Blueming(블루밍)',
-            cover: props.icon,
-            musicSrc: props.music,
-        }
-    ];
-
+function MusicPlayer({playList}) {
+    
     const options = {
-        audioLists: audioList1,
+        audioLists: playList,
         defaultPlayIndex: 0,
         theme: 'dark',
         bounds: 'body',
         clearPriorAudioLists: false,
-        autoPlayInitLoadPlayList: false,
+        autoPlayInitLoadPlayList: true,
         preload: false,
         glassBg: false,
         remember: false,
