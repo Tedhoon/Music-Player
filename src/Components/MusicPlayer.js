@@ -1,27 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactJkMusicPlayer from "react-jinke-music-player";
 import "react-jinke-music-player/assets/index.css";
 
-function MusicPlayer(props) {
-    const audioList1 = [
-        {
-            name: 'IU(아이유) _ Blueming(블루밍)',
-            cover: props.icon,
-            musicSrc: props.music,
-        }, {
-            name: 'IU(아이유) _ Blueming(블루밍)',
-            cover: props.icon,
-            musicSrc: props.music,
-        }
-    ];
-
+function MusicPlayer({playList}) {
+    // console.log("뮤직플레이어 작동!!!")
+    // console.log(playList)
+    // const [audioLists, setAudioLists] = useState(playList)
+    
+    // console.log("오디오 리스트:", audioLists)
     const options = {
-        audioLists: audioList1,
         defaultPlayIndex: 0,
         theme: 'dark',
         bounds: 'body',
-        clearPriorAudioLists: false,
-        autoPlayInitLoadPlayList: false,
+        clearPriorAudioLists: true,
+        autoPlayInitLoadPlayList: true,
         preload: false,
         glassBg: false,
         remember: false,
@@ -44,7 +36,7 @@ function MusicPlayer(props) {
         showReload: false,
         showDownload: false,
         showPlayMode: false,
-        showDestroy: true,
+        showDestroy: false,
         extendsContent: [],
         defaultVolume: 0.05,
         playModeShowTime: 600,
@@ -53,10 +45,19 @@ function MusicPlayer(props) {
         spaceBar: true,
 
     };
-
+    useEffect(() => {
+        console.log(playList)
+    }, [playList])
+    // const onSetAudioList = () => {
+    //     let a = []
+    //     // a = playList
+    //     // setAudioLists(playList)
+    // }
     return (
-        <ReactJkMusicPlayer {...options}/>
+        <>
+            {playList && <ReactJkMusicPlayer {...options} audioLists={playList} /> }
+        </>
     );
 }
 
-export default MusicPlayer;
+export default React.memo(MusicPlayer);
