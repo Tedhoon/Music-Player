@@ -3,15 +3,10 @@ import ReactJkMusicPlayer from "react-jinke-music-player";
 import "react-jinke-music-player/assets/index.css";
 
 function MusicPlayer({playList}) {
-    // console.log("뮤직플레이어 작동!!!")
-    // console.log(playList)
-    // const [audioLists, setAudioLists] = useState(playList)
-    
-    // console.log("오디오 리스트:", audioLists)
     const options = {
         defaultPlayIndex: 0,
         theme: 'dark',
-        bounds: 'body',
+        bounds: 'top',
         clearPriorAudioLists: true,
         autoPlayInitLoadPlayList: true,
         preload: false,
@@ -19,7 +14,7 @@ function MusicPlayer({playList}) {
         remember: false,
         remove: true,
         defaultPosition: {
-            top: 150,
+            bottom: 10,
             right: 10,
         },
         defaultPlayMode: 'singleLoop',
@@ -29,13 +24,13 @@ function MusicPlayer({playList}) {
         toggleMode: true,
         showMiniModeCover: true,
         showMiniProcessBar: false,
-        drag: true,
+        // drag: true,
         seeked: true,
         showProgressLoadBar: true,
         showPlay: true,
         showReload: false,
         showDownload: false,
-        showPlayMode: false,
+        showPlayMode: false, // 반복인지, 셔플인지 etc
         showDestroy: false,
         extendsContent: [],
         defaultVolume: 0.05,
@@ -45,9 +40,9 @@ function MusicPlayer({playList}) {
         spaceBar: true,
 
     };
-    useEffect(() => {
-        console.log(playList)
-    }, [playList])
+    // useEffect(() => {
+    //     console.log(playList)
+    // }, [playList])
     // const onSetAudioList = () => {
     //     let a = []
     //     // a = playList
@@ -55,7 +50,10 @@ function MusicPlayer({playList}) {
     // }
     return (
         <>
-            {playList && <ReactJkMusicPlayer {...options} audioLists={playList} /> }
+            <ReactJkMusicPlayer
+                audioLists={playList}
+                {...options}  
+            /> 
         </>
     );
 }
