@@ -6,7 +6,7 @@ function MusicPlayer({playList}) {
     const options = {
         defaultPlayIndex: 0,
         theme: 'dark',
-        bounds: 'top',
+        bounds: 'html',
         clearPriorAudioLists: true,
         autoPlayInitLoadPlayList: true,
         preload: false,
