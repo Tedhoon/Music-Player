@@ -45,9 +45,9 @@ function MusicPlayer({playList}) {
         spaceBar: true,
 
     };
-    // useEffect(() => {
-    //     setAudioLists(...playList)
-    // }, [playList])
+    useEffect(() => {
+        console.log(playList)
+    }, [playList])
     // const onSetAudioList = () => {
     //     let a = []
     //     // a = playList

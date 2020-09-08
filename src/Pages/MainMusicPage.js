@@ -4,7 +4,7 @@ import MusicPlayer from '../Components/MusicPlayer';
 
 function MainMusicPage () {
 
-    const [ playList, setPlayList ] = useState([])
+    const [playList, setPlayList] = useState([])
     
     const playMusicTheme = (event) => {
         const { id } = event.target;
@@ -12,11 +12,21 @@ function MainMusicPage () {
         switch (id) {
             case "MUSICTHEME1":
                 console.log("1실행")
-                setPlayList(...playList, MUSICTHEME1)
+                // setPlayList([...playList, MUSICTHEME1[0],MUSICTHEME1[1],MUSICTHEME1[2]])
+                // setPlayList([...playList, MUSICTHEME1])
+
+                setPlayList([...playList, ...MUSICTHEME1])
+                // console.log([...playList])
+                // console.log(typeof(MUSICTHEME1))
+                // console.log(typeof(MUSICTHEME1[0],MUSICTHEME1[2]))
+                // console.log(MUSICTHEME1)
+                // console.log([...MUSICTHEME1])
+                // console.log(MUSICTHEME1[0],MUSICTHEME1[1],MUSICTHEME1[2])
+                // console.log([MUSICTHEME1[0], MUSICTHEME1[1], MUSICTHEME1[2]])
                 break;
             case "MUSICTHEME2":
                 console.log("2실행")
-                setPlayList(...playList, MUSICTHEME2)
+                setPlayList([...playList, ...MUSICTHEME2])
                 break;
             default:
                 return;
@@ -29,22 +39,22 @@ function MainMusicPage () {
     }
 
     useEffect(() => {
-        console.log(playList);
-        console.log(...playList)
-        console.log([...playList, [MUSICTHEME2[0]]])
+        // console.log(playList);
+        // console.log(...playList)
+        // console.log([...playList, [MUSICTHEME2[0]]])
         
-        console.log([...playList] + MUSICTHEME2[0])
-        console.log(MUSICTHEME1)
-        console.log(MUSICTHEME2)
-        console.log(MUSICTHEME2[0])
-        console.log([playList])
+        // console.log([...playList] + MUSICTHEME2[0])
+        // console.log(MUSICTHEME1)
+        // console.log(MUSICTHEME2)
+        // console.log(MUSICTHEME2[0])
+        // console.log([playList])
     }, [playList])
 
     return (
         <>
 
             {
-                MUSICTHEME1.map((music, key) => <div onClick={addMusic} id={key}>{music.name}</div>)
+                MUSICTHEME1.map((music, key) => <button onClick={addMusic} id={key}>{music.name}</button>)
             }
             <button onClick={playMusicTheme} id="MUSICTHEME1">테마 1</button>
             <button onClick={playMusicTheme} id="MUSICTHEME2">테마 2</button>
